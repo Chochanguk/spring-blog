@@ -198,7 +198,6 @@ public class BlogApiControllerTest {
         //수정 요청 DTO 객체
         UpdateArticleRequest request=new UpdateArticleRequest(newTitle,newContent);
 
-
         //when
         //UPDATE API로 수정요청을 보낸다. 이때 요청 타입 JSON이면
         //given 절에서 미리 만들어둔 객체를 요청 본문으로 보냄

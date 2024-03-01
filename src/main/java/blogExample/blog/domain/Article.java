@@ -5,9 +5,14 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.cglib.core.Local;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
-import java.security.PublicKey;
+import java.time.LocalDateTime;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+@EntityListeners(AuditingEntityListener.class)
 @Entity //빈으로 등록
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)//기본생성자를 protected로 생성하는 롬복
@@ -24,6 +29,15 @@ public class Article {
 
     @Column(name="content",nullable = false)
     private String content;
+
+    @CreatedDate     //엔티티가 생성될 때 생성 시간 저장
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @LastModifiedDate    //엔티티가 수정될 때 수정 시간 저장
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
 
     //setter대신 생성자로 값 설정
     @Builder //★★Builder 패턴으로 생성자 객체 정의★★★

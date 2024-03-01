@@ -65,7 +65,6 @@ public class BlogApiController {
     public ResponseEntity<Void> deleteArticle(@PathVariable("id") Long id)
     {
         blogService.delete(id);
-
         return ResponseEntity.ok()
                 .build();
     }
@@ -75,10 +74,10 @@ public class BlogApiController {
             @PathVariable("id") Long id,
             @RequestBody UpdateArticleRequest request)
     {
-        Article updateAriticle = blogService.update(id, request);
+        Article updateArticle = blogService.update(id, request);
 
         return ResponseEntity.ok()
-                .body(updateAriticle);
+                .body(updateArticle);
     }
 
 }

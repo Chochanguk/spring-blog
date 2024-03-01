@@ -2,10 +2,15 @@ package blogExample.blog;
 
 import blogExample.blog.domain.Article;
 import jakarta.annotation.PostConstruct;
+import jakarta.persistence.Column;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
 
 
 @Component
