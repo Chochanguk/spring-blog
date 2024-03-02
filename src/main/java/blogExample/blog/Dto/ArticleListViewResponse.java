@@ -1,6 +1,7 @@
 package blogExample.blog.Dto;
 
 import blogExample.blog.domain.Article;
+import lombok.Data;
 import lombok.Getter;
 
 @Getter
