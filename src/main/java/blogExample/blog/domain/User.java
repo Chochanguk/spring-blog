@@ -25,8 +25,9 @@ public class User implements UserDetails { //UserDetails를 상속 받아 인증
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
-
-    @Column(name = "password", nullable = false)
+    
+    //Ouath2 기능을 위해 nullable=true로 설정
+    @Column(name = "password")
     private String password;
 
     /**
@@ -42,7 +43,7 @@ public class User implements UserDetails { //UserDetails를 상속 받아 인증
         this.nickname=nickname; //생성자 nickname 추가
     }
     /**
-     * 사ㅏ용자 이름 변경
+     * 사용자 이름 변경
      */
     public User update(String nickname)
     {

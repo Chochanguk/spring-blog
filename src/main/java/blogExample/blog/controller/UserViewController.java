@@ -10,7 +10,7 @@ public class UserViewController {
     public String login()
     {
 
-        return "login";
+        return "oauthLogin";
     }
     //회원가입 뷰 컨트럴러
     @GetMapping("/signup")

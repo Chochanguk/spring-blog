@@ -38,11 +38,16 @@ public class Article {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    //author를 추가해 객체를 생성할 때 글쓴이를 입력받을 수 있게 변경
+    @Column(name = "author", nullable = false)
+    private String author;
+
 
     //setter대신 생성자로 값 설정
     @Builder //★★Builder 패턴으로 생성자 객체 정의★★★
-    public Article(String title,String content)
+    public Article(String author,String title,String content)
     {
+        this.author = author;
         this.title=title;
         this.content=content;
     }

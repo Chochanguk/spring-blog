@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.security.Principal;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -23,11 +24,12 @@ public class BlogApiController {
     //1. 글 작성하기 
     @PostMapping("/api/articles")
     public ResponseEntity<AddArticleResponseDto> addArticle(
-            @RequestBody AddArticleRequestDto addArticleRequestDto
+            @RequestBody AddArticleRequestDto addArticleRequestDto,
+            Principal principal
             )
     {
         //요청에 응답하여 블로그 글 생성
-        Article saveArticle=blogService.save(addArticleRequestDto);
+        Article saveArticle=blogService.save(addArticleRequestDto,principal.getName());
         //요청된 자원이 성공적으로 생성 되었으며
         // 저장된 블로그 글 정보를 응답 객체에 담아 전송
         return ResponseEntity.status(HttpStatus.CREATED)
