@@ -81,13 +81,18 @@ public class TokenApiControllerTest {
                 .build()
                 .createToken(jwtProperties);
         //3. 리프레시 토큰 저장
-        refreshTokenRepository.save(new RefreshToken(testUser.getId(),refreshToken));
-
+        RefreshToken refreshToken1 = refreshTokenRepository.save(new RefreshToken(testUser.getId(), refreshToken));
+        System.out.println("==================");
+        System.out.println(refreshToken1);
+        System.out.println("==================");
         //4. 토큰 요청에 대해 토큰을 리프레시 토큰으로 세팅
         CreateAccessTokenRequest request=new CreateAccessTokenRequest();
         request.setRefreshToken(refreshToken);
 
         final String requestBody=objectMapper.writeValueAsString(request);
+        System.out.println("==================");
+        System.out.println(" requestBody = "+ requestBody);
+        System.out.println("==================");
         /**
          * when
          */

@@ -18,7 +18,7 @@ import java.util.List;
 public class BlogViewController {
     private final BlogService blogService;
 
-
+    //글목록 조회
     @GetMapping("/articles")
     public String getArticles(Model model)
     {
@@ -31,6 +31,7 @@ public class BlogViewController {
 
     }
 
+    //글 단건 조회
     @GetMapping("/articles/{id}")
     public String getArticle(@PathVariable("id") Long id, Model model)
     {
@@ -41,7 +42,7 @@ public class BlogViewController {
     }
 
 
-
+    //글 등록 및 수정
     @GetMapping("/new-article")
     //id 키를 가진 쿼리 파라미터의 값을 id 변수에 매핑(id는 없을 수도 있음)
     public String newArticle(@RequestParam(required = false) Long id,Model model)

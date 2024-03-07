@@ -21,6 +21,8 @@ public class BlogService {
     // 1. 블로그 글 추가하기
     // 2. 블로그 글 목록 조회하기
     // 3. 블로그 글 단건 조회하기
+    // 4. 블로그 글 삭제하기
+    // 5. 블로그 글 수정하기
 
 
     //1. 블로그 글 추가 메서드
@@ -50,6 +52,7 @@ public class BlogService {
     {
         blogRepository.deleteById(id);
     }
+
     //5.블로그 업데이트 하기
     @Transactional
     public Article update(Long id, UpdateArticleRequest request)
@@ -60,6 +63,5 @@ public class BlogService {
         article.update(request.getTitle(),request.getContent());
         return article;
     }
-
 
 }

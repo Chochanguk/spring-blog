@@ -47,7 +47,9 @@ class TokenProviderTest {
                 .parseClaimsJws(token)
                 .getBody()
                 .get("id", Long.class);
-
+        System.out.println("==============");
+        System.out.println(token);
+        System.out.println("==============");
         assertThat(userId).isEqualTo(testUser.getId());
     }
 

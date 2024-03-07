@@ -13,11 +13,26 @@ spring: #띄어쓰기 없음
         show_sql: true   #띄어쓰기 8칸
         format_sql: true  #띄어쓰기 8칸
     # 테이블 생성 후 에 data.sql 실행
-    defer-datasource-initialization: true
+    defer-datasource-initialization: true #-> 추가
+  #Oauth2 설정
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 954177398104-id5ue76vcpiqcc0h5tu9tbrb01hcqg5r.apps.googleusercontent.com # 입력
+            client-secret: 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 # 입력
+            scope:
+              - email
+              - profile
 #    open-in-view: false # OSIV OFF
+  sql:
+    init:
+      mode: always  #-> 추가
 jwt:
   issuer: changuk0308@gmail.com
   secret_key: study-springboot
 logging.level: #띄어쓰기 없음
   org.hibernate.SQL: debug #띄어쓰기 2칸
   org.hibernate.orm.jdbc.bind: trace #파라미터에 머가 들어갈지 로그에 찍어줌
+

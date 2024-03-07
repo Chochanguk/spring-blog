@@ -29,10 +29,25 @@ public class User implements UserDetails { //UserDetails를 상속 받아 인증
     @Column(name = "password", nullable = false)
     private String password;
 
+    /**
+     * OAuth 관련 키 저장 코드 추가
+     */
+    @Column(name="nickname",unique = true)
+    private String nickname;
+
     @Builder
-    public User(String email, String password, String auth) {
+    public User(String email, String password, String nickname) {
         this.email = email;
         this.password = password;
+        this.nickname=nickname; //생성자 nickname 추가
+    }
+    /**
+     * 사ㅏ용자 이름 변경
+     */
+    public User update(String nickname)
+    {
+        this.nickname=nickname;
+        return this;
     }
 
 

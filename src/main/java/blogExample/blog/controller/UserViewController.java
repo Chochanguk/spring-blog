@@ -9,6 +9,7 @@ public class UserViewController {
     @GetMapping("/login")
     public String login()
     {
+
         return "login";
     }
     //회원가입 뷰 컨트럴러

@@ -53,8 +53,6 @@ public class BlogApiControllerTest {
         blogRepository.deleteAll();
     }
 
-
-
     /**
      *     테스트 로직 시작
      */
@@ -176,7 +174,7 @@ public class BlogApiControllerTest {
         assertThat(articles).isEmpty();
     }
 
-    //4. 블로그 글 삭제하기
+    //5. 블로그 글 수정하기
     @DisplayName("updateArticle: 블로그 글 수정에 성공한다.")
     @Test
     public void updateArticle() throws Exception {

@@ -37,13 +37,13 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeRequests()//3. 인증,인가 설정
-                .requestMatchers("/login", "/signup", "/user").permitAll()
+                .requestMatchers("/login", "/signup", "/user","/api/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin( //4. 폼 기반 로그인 설정
                         formLogin -> formLogin
                         .loginPage("/login")
-                        .defaultSuccessUrl("/articles")
+                        .defaultSuccessUrl("/articles") //로그인 성공시 이동할 경로 설정
                 )
                 .logout( //5.로그아웃 설정
                         logout -> logout

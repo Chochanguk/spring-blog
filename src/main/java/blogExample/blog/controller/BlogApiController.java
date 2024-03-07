@@ -1,6 +1,7 @@
 package blogExample.blog.controller;
 
 import blogExample.blog.Dto.AddArticleRequestDto;
+import blogExample.blog.Dto.AddArticleResponseDto;
 import blogExample.blog.Dto.ArticleResponseDto;
 import blogExample.blog.Dto.UpdateArticleRequest;
 import blogExample.blog.domain.Article;
@@ -21,7 +22,7 @@ public class BlogApiController {
     // DTO로 받은 후 엔티티로 변환 후 저장하기
     //1. 글 작성하기 
     @PostMapping("/api/articles")
-    public ResponseEntity<Article> addArticle(
+    public ResponseEntity<AddArticleResponseDto> addArticle(
             @RequestBody AddArticleRequestDto addArticleRequestDto
             )
     {
@@ -30,7 +31,7 @@ public class BlogApiController {
         //요청된 자원이 성공적으로 생성 되었으며
         // 저장된 블로그 글 정보를 응답 객체에 담아 전송
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(saveArticle);
+                .body(new AddArticleResponseDto(saveArticle));
 
         /** http 상태 응답 코드
          *  OK(200): 요청이 성공적으로 수행됨
@@ -70,14 +71,13 @@ public class BlogApiController {
     }
     //5. 블로그 글 수정하기
     @PatchMapping("/api/articles/{id}")
-    public ResponseEntity<Article> updateArticle(
+    public ResponseEntity<AddArticleResponseDto> updateArticle(
             @PathVariable("id") Long id,
             @RequestBody UpdateArticleRequest request)
     {
         Article updateArticle = blogService.update(id, request);
-
         return ResponseEntity.ok()
-                .body(updateArticle);
+                .body(new AddArticleResponseDto(updateArticle));
     }
 
 }
